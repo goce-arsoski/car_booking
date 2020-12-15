@@ -1,0 +1,11 @@
+<% if local_assigns[:index] %>
+  <p class="title">
+    <%= link_to car_path(car) do %>
+      <span class="is-size-4 has-text-weight-bold"><%= car.brand %></span>
+    <% end %>
+  </p>
+<% else %>
+  <p class="title">
+      <span class="is-size-4 has-text-weight-bold"><%= car.brand %></span>
+  </p>
+<% end %>
