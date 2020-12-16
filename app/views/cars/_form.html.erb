@@ -24,6 +24,16 @@
         </div>
         <div class="control">
           <p>
+            <%= form.label :photo %>
+            <%= form.file_field :photo, class: 'form-control' %>
+          </p>
+        </div>
+        <div class="control">
+          <p>
+            <% if @car.photo.attached? %>
+              <%= image_tag @car.photo, style: 'width 200px; display: block' %>
+            <% end %>
+
             <%= form.submit submit %>
             <%= link_to 'Cancel', @car, class: 'button is-light' %>
           </p>

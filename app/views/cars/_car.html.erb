@@ -8,4 +8,9 @@
   <p class="title">
       <span class="is-size-4 has-text-weight-bold"><%= car.brand %></span>
   </p>
+  <div>
+    <% if @car.photo.attached? %>
+      <%= image_tag @car.photo.variant(resize: "250x140") %>
+    <% end %>
+  </div>
 <% end %>
