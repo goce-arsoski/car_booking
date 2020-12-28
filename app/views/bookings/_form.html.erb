@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-2 col-sm-offset-8">
+      <%= form_with model: @booking, local: true do |form| %>
+        <div class="form-group row">
+          <p>
+            <%= form.label :cars %>
+            <%= collection_select(:booking, :car_ids, Car.all, :id, :plate, {}, { multiple: true } ) %>
+          </p>
+        </div>
+
+        <div class="form-group row">
+          <p>
+            <%= form.label :start_date, class: 'col-md-auto col-form-label' %>
+            <%= form.date_field :start_date, class: 'form-control', placeholder: 'Insert start date' %>
+          </p>
+        </div>
+        <div class="form-group row">
+          <p>
+            <%= form.label :end_date, class: 'col-md-auto col-form-label' %>
+            <%= form.date_field :end_date, class: 'form-control', placeholder: 'Insert end date' %>
+          </p>
+        </div>
+        <div class="form-group row">
+          <p>
+            <%= form.submit 'Reserve', class: 'btn btn-success' %>
+            <%= link_to 'Cancel', @booking, class: 'btn btn-danger' %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

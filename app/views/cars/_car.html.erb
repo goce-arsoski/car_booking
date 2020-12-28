@@ -1,16 +1,16 @@
-<% if local_assigns[:index] %>
+<%# if local_assigns[:index] %>
   <p class="title">
     <%= link_to car_path(car) do %>
       <span class="is-size-4 has-text-weight-bold"><%= car.brand %></span>
     <% end %>
   </p>
-<% else %>
-  <p class="title">
-      <span class="is-size-4 has-text-weight-bold"><%= car.brand %></span>
-  </p>
+<%# else %>
   <div>
-    <% if @car.photo.attached? %>
-      <%= image_tag @car.photo.variant(resize: "250x140") %>
+    <% if car.photo.attached? %>
+      <%= image_tag car.photo.variant(resize: "250x140") %>
     <% end %>
+
+    <%= link_to 'Book for existing person', new_booking_path %>
+    <%= link_to 'Book for new person', new_person_path %>
   </div>
-<% end %>
+<%# end %>

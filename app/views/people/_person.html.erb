@@ -1,0 +1,10 @@
+<%# if local_assigns[:index] %>
+  <p class="title">
+    <%= link_to person_path(person) do %>
+      <span><%= "#{ person.firstname } #{ person.lastname }" %></span>
+    <% end %>
+  </p>
+<%# else %>
+  <div>
+  </div>
+<%# end %>
