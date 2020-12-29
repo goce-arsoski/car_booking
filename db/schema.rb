@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_12_27_182000) do
   create_table "people", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
-    t.datetime "birthdate"
+    t.date "birthdate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-2 col-sm-offset-8">
+      <div>
+        <%= form_with model: @car, local: true do |form| %>
+
+          <%= form.collection_select(:car_id, @cars, :id, :brand, { prompt: true, multiple: true }) %>
+        <% end %>
+        <div>
+          <%= link_to 'Reserve', @booking, class: 'btn btn-success' %>
+          <%= link_to 'Cancel', @booking, class: 'btn btn-danger' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

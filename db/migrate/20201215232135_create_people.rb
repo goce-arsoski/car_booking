@@ -3,7 +3,7 @@ class CreatePeople < ActiveRecord::Migration[6.0]
     create_table :people do |t|
       t.string :firstname
       t.string :lastname
-      t.datetime :birthdate
+      t.date :birthdate
 
       t.timestamps
     end

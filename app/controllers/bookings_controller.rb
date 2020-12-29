@@ -9,6 +9,8 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @cars = Car.all
+    @people = Person.all
   end
 
   def create
@@ -36,10 +38,15 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def fullname
+    goce
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:status, :start_date, :end_date)
+    params.require(:booking)
+          .permit(:status, :start_date, :end_date, :car_id, :person_id)
   end
 
   def find_booking
