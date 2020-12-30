@@ -1,50 +1,7 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <h2 class="text-center">New</h2>
-
-      <%= form_with model: @car, local: true do |form| %>
-        <div class="control">
-          <p>
-            <%= form.label :brand %>
-            <%= form.text_field :brand, placeholder: 'Car brand' %>
-          </p>
-        </div>
-        <div class="control">
-          <p>
-            <%= form.label :plate %>
-            <%= form.text_field :plate, placeholder: 'Insert plate number' %>
-          </p>
-        </div>
-        <div class="control">
-          <p>
-            <%= form.label :color %>
-            <%= form.text_field :color, placeholder: 'Insert car color' %>
-          </p>
-        </div>
-        <div class="control">
-          <p>
-            <%= form.label :photo %>
-            <%= form.file_field :photo, class: 'form-control' %>
-          </p>
-        </div>
-        <div class="control">
-          <p>
-            <% if @car.photo.attached? %>
-              <%= image_tag @car.photo, style: 'width 200px; display: block' %>
-            <% end %>
-
-            <%= form.submit submit %>
-            <%= link_to 'Cancel', @car, class: 'button is-light' %>
-          </p>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-<div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-2 col-sm-offset-8">
+      <h2 class="text-center">Add a car</h2>
       <%= form_with model: @car, local: true do |form| %>
         <div class="form-group row">
           <p>
@@ -61,26 +18,23 @@
         <div class="form-group row">
           <p>
             <%= form.label :color, class: 'col-md-auto col-form-label' %>
-            <%= form.color_field :color, class: 'col-2 col-form-control' %>
-            <%# form.text_field :color, class: 'form-control', placeholder: 'Insert car color' %>
+            <%= form.text_field :color, class: 'form-control', placeholder: 'Insert car color' %>
+          </p>
+        </div>
+        <div class="control">
+          <p>
+            <%= form.label :photo %>
+            <%= form.file_field :photo, class: 'form-control' %>
           </p>
         </div>
         <div class="form-group row">
           <p>
-            <%= form.label :start_date, class: 'col-md-auto col-form-label' %>
-            <%= form.date_field :start_date, class: 'form-control', placeholder: 'Insert start date' %>
-          </p>
-        </div>
-        <div class="form-group row">
-          <p>
-            <%= form.label :end_date, class: 'col-md-auto col-form-label' %>
-            <%= form.date_field :end_date, class: 'form-control', placeholder: 'Insert end date' %>
-          </p>
-        </div>
-        <div class="form-group row">
-          <p>
-            <%= form.submit 'Reserve', class: 'btn btn-success' %>
-            <%= link_to 'Cancel', @car, class: 'btn btn-danger' %>
+            <% if @car.photo.attached? %>
+              <%= image_tag @car.photo, style: 'width 200px; display: block' %>
+            <% end %>
+
+            <%= form.submit submit %>
+            <%= link_to 'Cancel', @car, class: 'button is-light' %>
           </p>
         </div>
       <% end %>

@@ -5,7 +5,9 @@ class CarsController < ApplicationController
     @cars = Car.all.order('created_at DESC')
   end
 
-  def show; end
+  def show
+    @booking = Booking.create
+  end
 
   def new
     @car = Car.new

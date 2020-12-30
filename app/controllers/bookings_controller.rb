@@ -9,8 +9,6 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @cars = Car.all
-    @people = Person.all
   end
 
   def create
