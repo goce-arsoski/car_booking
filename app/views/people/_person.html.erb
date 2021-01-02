@@ -1,10 +1,16 @@
-<%# if local_assigns[:index] %>
   <p class="title">
     <%= link_to person_path(person) do %>
       <span><%= "#{ person.firstname } #{ person.lastname }" %></span>
     <% end %>
   </p>
-<%# else %>
+<% if local_assigns[:index] %>
   <div>
+    <%= link_to 'Edit this person', edit_person_path(person), class: 'btn btn-success' %>
+    <%= link_to 'Show all cars', cars_path, class: 'btn btn-success' %>
   </div>
-<%# end %>
+<% else %>
+  <div>
+    <%= link_to 'Edit this person', edit_person_path(person), class: 'btn btn-success' %>
+    <%= link_to 'Show all people', people_path, class: 'btn btn-success' %>
+  </div>
+<% end %>

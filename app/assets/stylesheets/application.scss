@@ -13,3 +13,9 @@
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+// Variables
+@import "base/variables";
+
+// Partials - main css files
+@import "partials/*";

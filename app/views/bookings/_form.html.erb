@@ -1,11 +1,14 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-sm-2 col-sm-offset-8">
+    <div class="col-sm-4 col-sm-offset-4">
       <%= form_with model: booking, local: true do |form| %>
       <%# simple_form_for [car, booking], method: :post, url: bookings_path do |form| %>
-
         <div class="form-group row">
-          <p>
+          <% if local_assigns[:edit] %>
+            <p>
+          <% else %>
+            <p hidden>
+          <% end %>
             <%# form.hidden_field :car_id %>
             <%# form.hidden.text_field :car_id, car.id %>
             <%# form.input :car_id, as: "hidden", input_html: { value: car.id } %>
@@ -22,7 +25,7 @@
               Car.all,
               :id,
               :brand,
-              {selected: car.id}
+              {selected: car.id, multiple: true}
               ) %>
           </p>
         </div>
@@ -62,7 +65,7 @@
         <div class="form-group row">
           <p>
             <%= form.submit 'Book', class: 'btn btn-success' %>
-            <%= link_to 'Cancel', class: 'btn btn-danger' %>
+            <%= link_to 'Cancel', booking_path, class: 'btn btn-danger' %>
           </p>
         </div>
       <% end %>
@@ -71,8 +74,8 @@
 </div>
 
 
-<%= simple_form_for([@car, @booking]) do |f| %>
-  <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
-  <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
-  <%= f.submit "book", class: "btn btn-primary btn-lg btn-block btn-booking" %>
-<% end %>
+<%# simple_form_for([@car, @booking]) do |f| %>
+  <%# f.input :start_date, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
+  <%# f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
+  <%# f.submit "book", class: "btn btn-primary btn-lg btn-block btn-booking" %>
+<%# end %>

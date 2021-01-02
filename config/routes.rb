@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#index'
 
   resources :cars
+  get 'car/:id', to: 'cars#info', as: :info_car
   resources :people
   resources :bookings
 

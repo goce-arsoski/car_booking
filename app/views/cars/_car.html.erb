@@ -1,15 +1,25 @@
-<%# if local_assigns[:index] %>
-  <p class="title">
-    <%= link_to car_path(car) do %>
+<p class="title">
+  <% unless local_assigns[:info] %>
+    <%= link_to info_car_path(car) do %>
       <span class="is-size-4 has-text-weight-bold"><%= car.brand %></span>
     <% end %>
-    <% if car.photo.attached? %>
-      <%= image_tag car.photo.variant(resize: "250x140") %>
-    <% end %>
-  </p>
-<%# else %>
-  <div>
-    <%# link_to 'Book for existing person', new_booking_path %>
-    <%= link_to 'Book for new person', new_person_path %>
-  </div>
-<%# end %>
+  <% else %>
+    <span class="is-size-4 has-text-weight-bold"><%= car.brand %></span>
+  <% end %>
+
+  <% if car.photo.attached? %>
+    <%= image_tag car.photo.variant(resize: "250x140") %>
+  <% end %>
+</p>
+<div>
+  <% if local_assigns[:info] %>
+    <%= link_to 'Book this car', car_path, class: 'btn btn-success' %>
+    <%= link_to 'Edit this car', edit_car_path, class: 'btn btn-success' %>
+    <%= link_to 'Show all cars', cars_path, class: 'btn btn-success' %>
+  <% end %>
+
+  <% if local_assigns[:index] %>
+    <%= link_to 'Book this car', car_path(car), class: 'btn btn-success' %>
+    <%= link_to 'Edit this car', edit_car_path(car), class: 'btn btn-success' %>
+  <% end %>
+</div>

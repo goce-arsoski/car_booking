@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to @booking
     else
-      render :new
+      redirect_to car_path(@booking.car)
     end
   end
 

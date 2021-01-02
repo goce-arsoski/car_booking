@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :find_car, only: %i[show edit update destroy]
+  before_action :find_car, only: %i[show info edit update destroy]
 
   def index
     @cars = Car.all.order('created_at DESC')
@@ -9,6 +9,8 @@ class CarsController < ApplicationController
     @booking = Booking.create
   end
 
+  def info; end
+
   def new
     @car = Car.new
   end
@@ -17,7 +19,7 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
 
     if @car.save
-      redirect_to @car
+      redirect_to info_car_path(@car)
     else
       render :new
     end
@@ -27,7 +29,7 @@ class CarsController < ApplicationController
 
   def update
     if @car.update(car_params)
-      redirect_to @car
+      redirect_to info_car_path(@car)
     else
       render :edit
     end

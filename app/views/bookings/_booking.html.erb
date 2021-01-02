@@ -1,16 +1,17 @@
 <% if local_assigns[:index] %>
   <p class="title">
     <%= link_to booking_path(booking) do %>
-      <span><%= booking.start_date %> - <%= booking.end_date %></span>
+      <span><%= booking.car.brand %> from: <%= booking.start_date %> to: <%= booking.end_date %></span>
     <% end %>
   </p>
+
 <% else %>
   <p class="title">
-    <span><%= booking.start_date %> - <%= booking.end_date %></span>
+    <span><%= link_to booking.car.brand, info_car_path(booking.car) %></span>
+    <span>from: <%= booking.start_date %> to: <%= booking.end_date %></span>
   </p>
-
-  <p class="title">
-    <span><%= booking.car.brand %> - <%= booking.end_date %></span>
-  </p>
-
+  <div>
+    <%= link_to 'Edit this booking', edit_booking_path, class: 'btn btn-success' %>
+    <%= link_to 'Show all bookings', bookings_path, class: 'btn btn-success' %>
+  </div>
 <% end %>

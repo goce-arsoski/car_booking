@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :car
   belongs_to :person
 
-  validates :start_date, :end_date, presence: true, availability: true
+  validates :start_date, :end_date, presence: true
   validate :end_date_after_start_date
 
   def booked_date_range
