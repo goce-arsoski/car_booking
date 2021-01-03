@@ -5,9 +5,9 @@ class Car < ApplicationRecord
 
   validates :brand, :plate, :color, presence: true
 
-  def unavailable_dates
-    bookings.pluck(:start_date, :end_date).map do |range|
-      { from: range[0], to: range[1] }
-    end
-  end
+  validates :photo, presence: true,
+                    blob: {
+                      content_type: ['image/jpg', 'image/jpeg', 'image/png'],
+                      size_range: 0..3.megabytes
+                    }
 end

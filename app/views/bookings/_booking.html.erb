@@ -4,9 +4,11 @@
       <span><%= booking.car.brand %> from: <%= booking.start_date %> to: <%= booking.end_date %></span>
     <% end %>
   </p>
-
 <% else %>
   <p class="title">
+    <%= link_to booking_path(booking) do %>
+      <span><%= booking.person.fullname %> - <span>
+    <% end %>
     <span><%= link_to booking.car.brand, info_car_path(booking.car) %></span>
     <span>from: <%= booking.start_date %> to: <%= booking.end_date %></span>
   </p>
