@@ -7,6 +7,8 @@
   <div>
     <%= link_to 'Edit this person', edit_person_path(person), class: 'btn btn-success' %>
     <%= link_to 'Show all cars', cars_path, class: 'btn btn-success' %>
+    <%= link_to "Delete", person_path(person), method: :delete, data: { confirm: "Are you sure?" },
+      class: "btn btn-danger text-muted" %>
   </div>
 <% else %>
   <div>

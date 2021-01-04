@@ -1,24 +1,16 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-      <%= link_to "Cars", root_path, class: 'navbar-brand' %>
+  <a class="navbar-brand">Car lenting</a>
+  <a class="navbar-brand"><%= link_to "Home", root_path, class: 'btn btn-dark' %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+      <%= link_to "Book Car", cars_path, class: 'btn' %>
+      <%= link_to "Add Car", new_car_path, class: 'btn' %>
+      <%= link_to "Add Person", new_person_path, class: 'btn' %>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+    <li class="mobile-menu">
+    </li>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+  </div>
 </nav>

@@ -1,5 +1,5 @@
 class Person < ApplicationRecord
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many :cars, through: :bookings
 
   validates :firstname, :lastname, :birthdate, presence: true

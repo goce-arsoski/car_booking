@@ -16,6 +16,8 @@
     <%= link_to 'Book this car', car_path, class: 'btn btn-success' %>
     <%= link_to 'Edit this car', edit_car_path, class: 'btn btn-success' %>
     <%= link_to 'Show all cars', cars_path, class: 'btn btn-success' %>
+    <%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "Are you sure?" },
+      class: "btn btn-danger text-muted" %>
   <% end %>
 
   <% if local_assigns[:index] %>
