@@ -13,6 +13,7 @@ class PeopleController < ApplicationController
 
   def create
     @person = Person.new(person_params)
+    flash[:success] = 'Person is added successfully.'
 
     if @person.save
       redirect_to @person
@@ -26,6 +27,7 @@ class PeopleController < ApplicationController
   def update
     if @person.update(person_params)
       redirect_to @person
+      flash[:success] = 'Changes have bin saved.'
     else
       render :edit
     end

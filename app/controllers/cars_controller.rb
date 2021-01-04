@@ -20,6 +20,7 @@ class CarsController < ApplicationController
 
     if @car.save
       redirect_to info_car_path(@car)
+      flash[:success] = 'Car is added successfully.'
     else
       render :new
     end
@@ -30,6 +31,7 @@ class CarsController < ApplicationController
   def update
     if @car.update(car_params)
       redirect_to info_car_path(@car)
+      flash[:success] = 'Changes have bin saved.'
     else
       render :edit
     end

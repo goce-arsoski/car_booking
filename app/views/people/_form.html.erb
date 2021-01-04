@@ -1,26 +1,9 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-sm-8 col-sm-offset-2">
-      <h2 class="text-center">Add a person</h2>
-      <% if person.errors.any? %>
-        <div class="column is-6 is-offset-3">
-          <div class="alert alert-danger" role="alert">
-            <p><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</p>
-            <br>
-            <p>
-            <% person.errors.full_messages.each do |msg| %>
-              <li><%= msg %>.</li>
-            <% end %>
-            </p>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+    <%= render 'shared/errors', object: @person %>
 
-  <div class="row justify-content-center">
     <div class="col-sm-4 col-sm-offset-4">
-      <%= form_with model: @person, local: true do |form| %>
+      <%= form_with model: person, local: true do |form| %>
         <div class="form-group row">
           <p>
             <%= form.label :firstname %>

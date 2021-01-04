@@ -31,7 +31,7 @@
         <div class="form-group row">
           <p>
             <% if car.photo.attached? %>
-              <%= image_tag car.photo, style: 'width 200px; display: block' %>
+              <%= image_tag car.photo.variant(resize: "500x280") %>
             <% end %>
 
             <%= form.submit submit, class: 'btn btn-success' %>

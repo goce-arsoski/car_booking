@@ -16,8 +16,10 @@ class BookingsController < ApplicationController
 
     if check_date && @booking.save
       redirect_to @booking
+      flash[:success] = 'The car is booked successfully.'
     else
       redirect_to car_path(@booking.car)
+      flash[:error] = 'Please check available booking dates for this car!'
     end
   end
 
@@ -26,8 +28,10 @@ class BookingsController < ApplicationController
   def update
     if update_date && @booking.update(booking_params)
       redirect_to @booking
+      flash[:success] = 'Changes have bin saved.'
     else
       render :edit
+      flash.now[:error] = 'Please check available booking dates!'
     end
   end
 
@@ -52,37 +56,37 @@ class BookingsController < ApplicationController
   end
 
   def check_date
-    bookings = Booking.where(car_id: @booking[:car_id]) #== booking_params[:car_id])
-    bookings.each do |booking|
-      @unavailable = false
-      @unavailable = @booking.end_date.between?(
+    @unavailable = false
+    return @unavailable if booking_params[:start_date] || booking_params[:end_date]
+
+    bookings = Booking.where(car_id: @booking[:car_id])
+      bookings.each do |booking|
+      @unavailable = @booking.start_date.between?(
                        booking.start_date, booking.end_date
                      ) ||
-                     @booking.start_date.between?(
+                     @booking.end_date.between?(
                        booking.start_date, booking.end_date
                      )
-      # flash[:alert] =
       break if @unavailable == true
     end
     !@unavailable
   end
 
   def update_date
+    @unavailable = false
+    return @unavailable if booking_params[:start_date] || booking_params[:end_date]
+
     bookings = Booking.where(car_id: @booking[:car_id])
     bookings.each do |booking|
       next if booking.id == @booking.id
 
-      @unavailable = false
-      @unavailable = booking_params[:end_date].to_date.between?(
+      @unavailable = booking_params[:start_date].to_date.between?(
                        booking.start_date, booking.end_date
                      ) ||
-                     booking_params[:start_date].to_date.between?(
+                     booking_params[:end_date].to_date.between?(
                        booking.start_date, booking.end_date
                      )
-        # flash[:alert] =
       break if @unavailable == true
-      # puts @unavailable
-      # return false
     end
     !@unavailable
   end
