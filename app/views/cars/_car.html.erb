@@ -1,8 +1,6 @@
 <p class="title">
   <% unless local_assigns[:info] %>
-    <%= link_to info_car_path(car) do %>
-      <span class="is-size-4 has-text-weight-bold"><%= car.brand %></span>
-    <% end %>
+    <span class="is-size-4 has-text-weight-bold"><%= link_to car.brand, info_car_path(car) %></span>
   <% else %>
     <span class="is-size-4 has-text-weight-bold"><%= car.brand %></span>
   <% end %>
