@@ -1,21 +1,25 @@
-<% if local_assigns[:index] %>
-  <p class="title">
-    <%= link_to booking_path(booking) do %>
-      <span><%= booking.car.brand %> from: <%= booking.start_date %> to: <%= booking.end_date %></span>
+<table class="table">
+  <th>
+    <% if local_assigns[:index] %>
+      <p class="title">
+        <%= link_to booking_path(booking) do %>
+          <span><%= booking.car.brand %> from: <%= booking.start_date %> to: <%= booking.end_date %></span>
+        <% end %>
+      </p>
+    <% else %>
+      <p class="title">
+        <%= link_to booking_path(booking) do %>
+          <span><%= booking.person.fullname %> - <span>
+        <% end %>
+        <span><%= link_to booking.car.brand, info_car_path(booking.car) %></span>
+        <span>from: <%= booking.start_date %> to: <%= booking.end_date %></span>
+      </p>
+      <div>
+        <%= link_to 'Edit this booking', edit_booking_path, class: 'btn btn-success' %>
+        <%= link_to 'Show all bookings', bookings_path, class: 'btn btn-success' %>
+        <%= link_to "Delete", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" },
+          class: "btn btn-danger" %>
+      </div>
     <% end %>
-  </p>
-<% else %>
-  <p class="title">
-    <%= link_to booking_path(booking) do %>
-      <span><%= booking.person.fullname %> - <span>
-    <% end %>
-    <span><%= link_to booking.car.brand, info_car_path(booking.car) %></span>
-    <span>from: <%= booking.start_date %> to: <%= booking.end_date %></span>
-  </p>
-  <div>
-    <%= link_to 'Edit this booking', edit_booking_path, class: 'btn btn-success' %>
-    <%= link_to 'Show all bookings', bookings_path, class: 'btn btn-success' %>
-    <%= link_to "Delete", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" },
-      class: "btn btn-danger text-muted" %>
-  </div>
-<% end %>
+  </th>
+</table>

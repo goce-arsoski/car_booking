@@ -1,5 +1,5 @@
 {
-  "name": "car_lenting",
+  "name": "car_booking",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",

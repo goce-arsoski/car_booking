@@ -57,10 +57,10 @@ class BookingsController < ApplicationController
 
   def check_date
     @unavailable = false
-    return @unavailable if booking_params[:start_date] || booking_params[:end_date]
+    return @unavailable if @booking.start_date.nil? || @booking.end_date.nil?
 
     bookings = Booking.where(car_id: @booking[:car_id])
-      bookings.each do |booking|
+    bookings.each do |booking|
       @unavailable = @booking.start_date.between?(
                        booking.start_date, booking.end_date
                      ) ||
@@ -74,7 +74,7 @@ class BookingsController < ApplicationController
 
   def update_date
     @unavailable = false
-    return @unavailable if booking_params[:start_date] || booking_params[:end_date]
+    return @unavailable if booking_params[:start_date].nil? || booking_params[:end_date].nil?
 
     bookings = Booking.where(car_id: @booking[:car_id])
     bookings.each do |booking|
