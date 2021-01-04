@@ -34,13 +34,13 @@
         <div class="form-group row">
           <p>
             <%= form.label :start_date, class: 'col-md-auto col-form-label' %><br />
-            <%= form.date_field(:start_date, default: Date.today, order: [:day, :month, :year], class: 'form-control')%>
+            <%= form.date_field(:start_date, value: Date.today, order: [:day, :month, :year], class: 'form-control')%>
           </p>
         </div>
         <div class="form-group row">
           <p>
             <%= form.label :end_date, class: 'col-md-auto col-form-label' %><br />
-            <%= form.date_field(:end_date, default: Date.today + 1, order: [:day, :month, :year], class: 'form-control')%>
+            <%= form.date_field(:end_date, value: Date.today + 1, order: [:day, :month, :year], class: 'form-control')%>
           </p>
         </div>
         <div class="btn-group row">
