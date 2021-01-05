@@ -2,7 +2,9 @@
   <th>
     <% if local_assigns[:index] %>
       <p class="title">
-        <span><%= link_to booking.car.brand, booking_path(booking) %> from: <%= booking.start_date.strftime("%d.%m.%Y") %> to: <%= booking.end_date.strftime("%d.%m.%Y") %></span>
+      <%= link_to booking_path(booking) do %>
+        <span><%= booking.car.brand %> from: <%= booking.start_date.strftime("%d.%m.%Y") %> to: <%= booking.end_date.strftime("%d.%m.%Y") %></span>
+      <% end %>
       </p>
     <% else %>
       <p class="title">

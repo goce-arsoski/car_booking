@@ -1,15 +1,18 @@
 <table class="table">
   <th>
-    <p class="title">
-      <span><%= link_to "#{ person.firstname } #{ person.lastname }", person_path(person) %></span>
-    </p>
     <% if local_assigns[:index] %>
       <div>
+        <p class="title">
+          <span><%= link_to "#{person.firstname} #{person.lastname} - #{person.birthdate.strftime("%d.%m.%Y")}", person_path(person) %></span>
+        </p>
         <%= link_to 'Edit this person', edit_person_path(person), class: 'btn btn-success' %>
         <%= link_to 'People', people_path, class: 'btn btn-success' %>
       </div>
     <% else %>
       <div>
+        <p class="title">
+          <span><%= "#{person.firstname} #{person.lastname} - #{person.birthdate.strftime("%d.%m.%Y")}" %></span>
+        </p>
         <%= link_to 'Edit this person', edit_person_path(person), class: 'btn btn-success' %>
         <%= link_to 'People', people_path, class: 'btn btn-success' %>
         <%= link_to "Delete", person_path(person), method: :delete, data: { confirm: "Are you sure?" },

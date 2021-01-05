@@ -4,31 +4,31 @@
 
     <div class="col-sm-4 col-sm-offset-4">
       <%= form_with model: car, local: true do |form| %>
-        <div class="form-group row">
+        <div class="form-group row text-center">
           <p>
             <%= form.label :brand, class: 'col-md-auto col-form-label' %>
-            <%= form.text_field :brand, class: 'form-control', placeholder: 'Car brand' %>
+            <%= form.text_field :brand, class: 'form-control', placeholder: 'Car brand', class: 'text-center' %>
           </p>
         </div>
-        <div class="form-group row">
+        <div class="form-group row text-center">
           <p>
             <%= form.label :plate, class: 'col-md-auto col-form-label' %>
-            <%= form.text_field :plate, class: 'form-control', placeholder: 'Plate number' %>
+            <%= form.text_field :plate, class: 'form-control', placeholder: 'Plate number', class: 'text-center' %>
           </p>
         </div>
-        <div class="form-group row">
+        <div class="form-group row text-center">
           <p>
             <%= form.label :color, class: 'col-md-auto col-form-label' %>
-            <%= form.text_field :color, class: 'form-control', placeholder: 'Insert car color' %>
+            <%= form.text_field :color, class: 'form-control', placeholder: 'Insert car color', class: 'text-center' %>
           </p>
         </div>
-        <div class="control">
+        <div class="control text-center">
           <p>
             <%= form.label :photo %>
             <%= form.file_field :photo, class: 'form-control' %>
           </p>
         </div>
-        <div class="form-group row">
+        <div class="text-center">
           <p>
             <% if car.photo.attached? %>
               <%= image_tag car.photo.variant(resize: "500x280") %>

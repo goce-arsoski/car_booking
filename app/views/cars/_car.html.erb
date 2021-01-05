@@ -1,19 +1,21 @@
-<p class="title">
+<p class="title text-center">
   <% unless local_assigns[:info] %>
-    <span class="is-size-4 has-text-weight-bold"><%= link_to car.brand, info_car_path(car) %></span>
+    <span class="h3"><%= link_to car.brand, info_car_path(car) %></span><br />
   <% else %>
-    <span class="is-size-4 has-text-weight-bold"><%= car.brand %></span>
+    <span class="h3"><%= car.brand %></span><br />
   <% end %>
 
+    <span class="h4"><%= car.plate %></span><br />
+    <span class="h4"><%= car.color %></span><br />
   <% if car.photo.attached? %>
     <%= image_tag car.photo.variant(resize: "250x140") %>
   <% end %>
 </p>
-<div>
+<div class="text-center">
   <% if local_assigns[:info] %>
     <%= link_to 'Book this car', car_path, class: 'btn btn-success' %>
     <%= link_to 'Edit this car', edit_car_path, class: 'btn btn-success' %>
-    <%= link_to 'Show all cars', cars_path, class: 'btn btn-success' %>
+    <%= link_to 'Cars', cars_path, class: 'btn btn-success' %>
     <%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "Are you sure?" },
       class: "btn btn-danger" %>
   <% end %>
