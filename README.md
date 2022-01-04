@@ -1,4 +1,4 @@
-# Delicious Recipes
+# Car Booking
 CONTAINS OF THIS FILE
 ---------------------
 * Summary
@@ -16,7 +16,7 @@ CarBooking is a web application where User could create cars, people and book a 
 REQUIREMENTS
 ------------
 
-In order to install the application you need to have the minimun requirements:
+In order to install the application you need to have the minimum requirements:
 - Ruby version 2.7.1
 - Rails 6.0.3.4
 - PostgreSQL 13.1
